@@ -6,7 +6,7 @@ const QrCode = () => {
   const { userId } = useParams();
 
   const handleEditClick = () => {
-    navigate(`/${userId}/edit`)
+    navigate(`/user/${userId}/edit`)
   }
 
   return (
