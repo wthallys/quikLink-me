@@ -9,13 +9,13 @@ function App() {
 
   return (
     <BrowserRouter>
-    {/* Aqui pode vir um header que não muda */}
+    {/* Aqui pode vir um header fixo */}
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='signup' element={<SignUp />} />
         <Route path='*' element={<NotFound />} />
-        <Route path='user/:id' element={<QrCode />} />
-        <Route path='user/:id/edit' element={<NotFound />} />
+        <Route path='user/:userId' element={<QrCode />} />
+        <Route path='user/:userId/edit' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

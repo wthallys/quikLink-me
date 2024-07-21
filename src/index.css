@@ -9,6 +9,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.form {
+  max-width: 450px;
+  margin: auto;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
