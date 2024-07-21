@@ -1,19 +1,42 @@
-import { Link } from "react-router-dom";
-import InputButton from "../components/InputButton";
+import * as React from 'react';
+import { Button, TextField } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
-    return (
-        <div>
-            <h2>Login</h2>
-            <p>Entre com suas credenciais</p>
-            <div className="form">
-                <input type="email" placeholder="email" />
-                <input type="password" placeholder="senha" />
-                <InputButton>Entrar</InputButton>
-            </div>
-            <p>Não tem uma conta? <Link to='signup'>Cadastre-se</Link></p>
-        </div>
-    )
-}
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
-export default Login
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    //logica do login
+  };
+
+  return (
+    <>
+      <h1>QUIKLINK-ME</h1>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          label="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          fullWidth
+          margin="normal"
+        />
+        <TextField
+          label="Senha"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          fullWidth
+          margin="normal"
+        />
+        <Button type="submit" variant="contained" color="primary" fullWidth>
+          Entrar
+        </Button>
+      </form>
+      <p>Ainda não tem uma conta? <Link to='/signup'>Cadastre-se</Link></p>
+    </>
+  );
+};
+
+export default Login;

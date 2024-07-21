@@ -3,15 +3,6 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.header {
-  display: flex;
-  justify-content: center;
+  border: 2px solid black;
+  border-radius: 4px;
 }
