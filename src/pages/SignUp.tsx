@@ -49,6 +49,7 @@ const SignUp = () => {
                 Registrar-se
             </Button>
             </form>
+            {error && <p>{error}</p>}
         <p>Já tem uma conta? <Link to='/'>Login</Link></p>
       </>
     );

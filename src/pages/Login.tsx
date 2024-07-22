@@ -48,6 +48,7 @@ const Login = () => {
           Entrar
         </Button>
       </form>
+      {error && <p>{error}</p>}
       <p>Ainda não tem uma conta? <Link to='/signup'>Cadastre-se</Link></p>
     </>
   );
