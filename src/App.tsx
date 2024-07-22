@@ -5,17 +5,16 @@ import SignUp from "./pages/SignUp";
 import NotFound from "./pages/NotFound";
 import QrCode from "./pages/QrCode";
 import EditLinks from "./pages/EditLinks";
-import Home from "./pages/Home";
+import PublicProfile from "./pages/PublicProfile";
 import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (
     <BrowserRouter>
-      {/* Aqui pode vir um header fixo */}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path=":userIdUrl" element={<Home />} />
+        <Route path=":userIdUrl" element={<PublicProfile />} />
         <Route
           path="user/:userIdUrl"
           element={

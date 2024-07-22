@@ -2,10 +2,14 @@ import Button from "@mui/material/Button"
 import { signOut } from "firebase/auth";
 import { useNavigate, useParams } from "react-router-dom"
 import { auth } from "../firebaseConfig";
+import QRCode from "qrcode.react";
 
 const QrCode = () => {
   const navigate = useNavigate();
   const { userIdUrl } = useParams();
+  const hostname = window.location.hostname;
+  
+  const urlQrCode = `${hostname}/${userIdUrl}`;
 
   const handleEditClick = () => {
     navigate(`/user/${userIdUrl}/edit`)
@@ -19,7 +23,9 @@ const QrCode = () => {
   return (
     <>
       <Button onClick={handleLogout} variant="contained">Sair</Button>
-      <div>QrCode here</div>
+      <div style={{ margin: '20px 0' }}>
+        <QRCode size={200} value={urlQrCode} />
+      </div>
       <Button onClick={handleEditClick} variant="outlined">
         Editar info
       </Button>
@@ -27,4 +33,4 @@ const QrCode = () => {
   )
 }
 
-export default QrCode
+export default QrCode;

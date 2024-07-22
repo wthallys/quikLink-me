@@ -5,7 +5,6 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
 
 const SignUp = () => {
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -30,13 +29,6 @@ const SignUp = () => {
       <>
         <h1>QUIKLINK-ME</h1>
         <form className="form" onSubmit={handleSubmit}>
-            <TextField
-                label="Nome"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                fullWidth
-                margin="normal"
-            />
             <TextField
                 label="email"
                 value={email}

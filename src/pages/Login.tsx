@@ -14,9 +14,11 @@ const Login = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      // Redirect or show a success message
-      navigate('/user/1253');
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log('Login successful');
+      const userId = userCredential.user.uid;
+      
+      navigate(`/user/${userId}`);
     } catch (error) {
       console.error('Login failed', error);
       setError('Failed to log in. Please try again.');
