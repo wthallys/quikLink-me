@@ -1,17 +1,26 @@
 import { useState } from 'react';
 import { Button, TextField } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
+import { auth } from '../firebaseConfig';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    //logica do login
-    navigate('/user/1253');
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      // Redirect or show a success message
+      navigate('/user/1253');
+    } catch (error) {
+      console.error('Login failed', error);
+      setError('Failed to log in. Please try again.');
+    }
   };
 
   return (

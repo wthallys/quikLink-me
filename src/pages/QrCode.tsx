@@ -1,17 +1,24 @@
 import Button from "@mui/material/Button"
+import { signOut } from "firebase/auth";
 import { useNavigate, useParams } from "react-router-dom"
+import { auth } from "../firebaseConfig";
 
 const QrCode = () => {
   const navigate = useNavigate();
-  const { userId } = useParams();
+  const { userIdUrl } = useParams();
 
   const handleEditClick = () => {
-    navigate(`/user/${userId}/edit`)
+    navigate(`/user/${userIdUrl}/edit`)
+  }
+
+  const handleLogout = async () => {
+    await signOut(auth);
+    navigate('/');
   }
 
   return (
     <>
-      <Button variant="contained">Sair</Button>
+      <Button onClick={handleLogout} variant="contained">Sair</Button>
       <div>QrCode here</div>
       <Button onClick={handleEditClick} variant="outlined">
         Editar info

@@ -1,15 +1,29 @@
 import { useState } from 'react';
 import { Button, TextField } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebaseConfig';
 
 const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    //logica do login
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      console.log('User signed up successfully');
+      navigate('/')
+     
+    } catch (error) {
+      console.error('Sign up failed', error);
+      setError('Failed to create an account. Please try again.');
+    }
+
   };
   
     return (
@@ -24,10 +38,11 @@ const SignUp = () => {
                 margin="normal"
             />
             <TextField
-                label="Email"
+                label="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 fullWidth
+                required={true}
                 margin="normal"
             />
             <TextField
