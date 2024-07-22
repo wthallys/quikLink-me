@@ -9,7 +9,7 @@ const QrCode = () => {
   const { userIdUrl } = useParams();
   const hostname = window.location.hostname;
   
-  const urlQrCode = `https://${hostname}/public/${userIdUrl}`;
+  const urlQrCode = `https://${hostname}/${userIdUrl}`;
 
   const handleEditClick = () => {
     navigate(`/user/${userIdUrl}/edit`)
