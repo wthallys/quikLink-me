@@ -13,7 +13,7 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path=":userIdUrl" element={<PublicProfile />} />
+        <Route path="public/:userIdUrl" element={<PublicProfile />} />
         <Route
           path="user/:userIdUrl"
           element={
