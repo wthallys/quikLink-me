@@ -1,0 +1,10 @@
+{
+    "rewrites": [
+      { "source": "/signup", "destination": "/" },
+      { "source": "/:userIdUrl", "destination": "/" },
+      { "source": "/user/:userIdUrl", "destination": "/" },
+      { "source": "/user/:userIdUrl/edit", "destination": "/" },
+      { "source": "/(.*)", "destination": "/" }
+    ]
+  }
+  
